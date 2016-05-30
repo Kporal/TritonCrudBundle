@@ -136,7 +136,7 @@
 
                             {%- elseif metadata.type in ['boolean'] %}
 
-                                <td>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}Yes{% else %}No{% endif %}' }}</td>
+                                <td>{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}<span class="label label-success">yes</span>{% else %}<span class="label label-danger">no</span>{% endif %}' }}</td>
 
                             {%- else %}
 

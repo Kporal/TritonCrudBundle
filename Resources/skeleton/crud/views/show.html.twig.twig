@@ -35,7 +35,7 @@
 
                     {%- elseif metadata.type in ['boolean'] %}
 
-                        <p class="form-control-static">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}Yes{% else %}No{% endif %}' }}</p>
+                        <p class="form-control-static">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}<span class="label label-success">yes</span>{% else %}<span class="label label-danger">no</span>{% endif %}' }}</p>
 
                     {%- else %}
 
