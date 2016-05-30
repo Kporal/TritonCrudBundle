@@ -25,7 +25,6 @@
         </div>
     </div>
 
-
     {% if with_filter == true %}
         <div class="row">
             <div class="col-md-12">
@@ -72,7 +71,7 @@
 
     {% if 'new' in actions %}
         <div class="row">
-            <div class="col-md-2 form-group pull-right">
+            <div class="col-md-2 form-group pull-right text-right">
                 <a class="btn btn-primary likepaginator" href="{{ "{{ path('"~ route_name_prefix ~"_new') }}" }}">
                     <i class="glyphicon glyphicon-plus"></i> New
                 </a>
