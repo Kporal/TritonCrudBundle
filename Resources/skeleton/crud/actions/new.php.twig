@@ -9,7 +9,6 @@
      */
     public function newAction(Request $request)
     {
-    
         ${{ entity_singularized }} = new {{ entity_class }}();
         $form   = $this->createForm('{{ namespace }}\Form\{{ entity_class }}Type', ${{ entity_singularized }});
         $form->handleRequest($request);
@@ -30,7 +29,4 @@
             'form'   => $form->createView(),
         ));
     }
-    
-    
-
     

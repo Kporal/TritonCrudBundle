@@ -27,10 +27,6 @@
     path:  /{id}/delete
     defaults: { _controller: "{{ bundle }}:{{ entity }}:delete" }
     requirements: { _method: post|delete }
-
-{{ route_name_prefix }}_by_id_delete:
-    path:  /delete/{id}
-    defaults: { _controller: "{{ bundle }}:{{ entity }}:deleteById" }
 {% endif %}
 
 {% if 'bulk' in actions %}

@@ -35,11 +35,6 @@ $collection->add('{{ route_name_prefix }}_delete', new Route(
     array('_controller' => '{{ bundle }}:{{ entity }}:delete'),
     array('_method' => 'post|delete')
 ));
-
-$collection->add('{{ route_name_prefix }}_by_id_delete', new Route(
-    '/delete/{id}',
-    array('_controller' => '{{ bundle }}:{{ entity }}:deleteById')
-));
 {% endif %}
 
 {% if 'bulk' in actions %}

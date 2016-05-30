@@ -9,7 +9,6 @@
      */
     public function deleteAction(Request $request, {{ entity_class }} ${{ entity_singularized }})
     {
-    
         $form = $this->createDeleteForm(${{ entity_singularized }});
         $form->handleRequest($request);
 
@@ -37,8 +36,7 @@
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('{{ route_name_prefix }}_delete', array('id' => ${{ entity_singularized }}->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
     
     /**
@@ -50,8 +48,7 @@
      * @Method("GET")
 {% endif %}
      */
-    public function deleteByIdAction($id){
-
+    public function deleteById($id){
         $em = $this->getDoctrine()->getManager();
         ${{ entity_singularized }} = $em->getRepository('{{ bundle }}:{{ entity }}')->find($id);
         
@@ -68,8 +65,4 @@
         }
 
         return $this->redirect($this->generateUrl('{{ route_name_prefix }}'));
-
     }
-    
-    
-    
