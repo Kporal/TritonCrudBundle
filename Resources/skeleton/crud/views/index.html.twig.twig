@@ -78,7 +78,6 @@
                 </a>
             </div>
         </div>
-
     {% endif %}
 
     {% if bulk_action == true %}
@@ -102,7 +101,7 @@
 
                         {%- endfor %}
 
-                        <th width="130px">List</th>
+                        <th width="130px">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -165,8 +164,8 @@
             </div>
         </div>
 
-        {% if bulk_action == true %}
         <div class="row">
+            {% if bulk_action == true %}
             <div class="col-md-4 pull-left">
                 <div class="pagination form-inline">
                     <select class="form-control" name="bulk_action">
@@ -175,11 +174,14 @@
                     <input type="submit" class="form-control btn btn-danger btn-sm">
                 </div>
             </div>
+            {% endif %}
 
-            <div class="col-md-4 col-md-offset-4 text-right">
+            <div class="col-md-4 col-md-offset-{{ (bulk_action == true) ? '4' : '8' }} text-right">
                 {{ ' {{ pagerHtml|raw }} ' }}
             </div>
         </div>
+
+    {% if bulk_action == true %}
     </form>
 
     <script type="text/javascript">
