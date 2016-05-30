@@ -1,6 +1,6 @@
 {% if 'delete' in actions %}
     <a onclick="return confirm('Are you sure?');" title="Delete" class="btn btn-danger btn-sm"
-       href="{{ "{{ path('"~ route_name_prefix ~"_delete', { 'id': " ~ entity_singularized ~ "."~ identifier ~"}) }}" }}">
+       href="{{ "{{ path('"~ route_name_prefix ~"_by_id_delete', { 'id': " ~ entity_singularized ~ "."~ identifier ~"}) }}" }}">
         <i class="glyphicon glyphicon-trash"></i>
     </a>
 {% endif %}
