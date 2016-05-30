@@ -11,49 +11,45 @@
 </header>
 <div class="panel-body">
 
-    <form class="form form-vertical">
-        <fieldset>
-            {%- for field, metadata in fields %}
-            <div class="control-group">
+    <form class="form-horizontal">
+        {%- for field, metadata in fields %}
+            <div class="form-group">
                 <label class="col-sm-2 control-label">{{ field|capitalize }}</label>
                 <div class="col-sm-10">
 
                     {%- if metadata.type in ['datetime'] %}
 
-                    <span class="input-xlarge uneditable-input">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</span>
+                        <p class="form-control-static">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</p>
 
                     {%- elseif metadata.type in ['date'] %}
 
-                    <span class="input-xlarge uneditable-input">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d\') }}{% endif %}' }}</span>
+                        <p class="form-control-static">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d\') }}{% endif %}' }}</p>
 
                     {%- elseif metadata.type in ['time'] %}
 
-                    <span class="input-xlarge uneditable-input">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'H:i:s\') }}{% endif %}' }}</span>
+                        <p class="form-control-static">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|date(\'H:i:s\') }}{% endif %}' }}</p>
 
                     {%- elseif metadata.type in ['array'] %}
 
-                    <span class="input-xlarge uneditable-input">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|join(\', \') }}{% endif %}' }}</span>
+                        <p class="form-control-static">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ '|join(\', \') }}{% endif %}' }}</p>
 
                     {%- elseif metadata.type in ['boolean'] %}
 
-                    <span class="input-xlarge uneditable-input">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}Yes{% else %}No{% endif %}' }}</span>
+                        <p class="form-control-static">{{ '{% if ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' %}Yes{% else %}No{% endif %}' }}</p>
 
                     {%- else %}
 
-                    <span class="input-xlarge uneditable-input">{{ '{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' }}' }}</span>
+                        <p class="form-control-static">{{ '{{ ' ~ entity_singularized ~ '.' ~ field|replace({'_': ''}) ~ ' }}' }}</p>
 
                     {%- endif %}
 
                 </div>
             </div>
-            {%- endfor %}
-        </fieldset>
+        {%- endfor %}
     </form>
-        <hr>
+    <hr>
     {% set hide_edit, hide_delete, hide_new= false, false, false %}
     {% include 'crud/views/others/record_actions.html.twig.twig' %}
 </div>
-<hr>
 
 {{ "{% endblock %}" }}
-
